@@ -1,0 +1,13 @@
+.env
+__pycache__/
+*.pyc
+downloads/*
+!downloads/.gitkeep
+cache/*
+!cache/.gitkeep
+*.session
+*.log
+log.txt
+.vscode/
+.idea/
+.venv/

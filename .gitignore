@@ -1,0 +1,48 @@
+# eXuCoDeR Music Bot - Git Ignore
+
+# Environment
+.env
+*.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Downloads & Cache
+downloads/*
+!downloads/.gitkeep
+cache/*
+!cache/.gitkeep
+anony/cookies/*.txt
+!anony/cookies/.gitkeep
+
+# Logs
+*.log
+log.txt
+
+# Sessions
+*.session
+*.session-journal
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# uv
+.venv/
+uv.lock
