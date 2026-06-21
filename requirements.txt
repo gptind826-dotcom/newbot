@@ -10,7 +10,7 @@ pytgcalls>=3.0.0.dev24
 ntgcalls>=1.0.0
 
 # YouTube
-tyt-dlp>=2024.12.13
+yt-dlp>=2024.12.13
 py-yt>=1.2.5
 
 # Database
