@@ -160,3 +160,7 @@ class Utilities:
             parts.append(f"{minutes}m")
         parts.append(f"{seconds}s")
         return " ".join(parts)
+
+
+# Create singleton instance for import convenience
+utils = Utilities()
