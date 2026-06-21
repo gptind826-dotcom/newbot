@@ -15,23 +15,37 @@ import subprocess
 
 def check_dependencies():
     """Check if all required dependencies are installed."""
-    required_packages = [
-        "pyrogram", "pytgcalls", "yt_dlp", "pymongo", "Pillow",
-        "aiohttp", "motor", "python-dotenv", "py-yt",
-    ]
+    # Mapping package names to their actual importable module names
+    required_packages = {
+        "pyrogram": "pyrogram", 
+        "pytgcalls": "pytgcalls", 
+        "yt-dlp": "yt_dlp", 
+        "pymongo": "pymongo", 
+        "Pillow": "PIL",  # Pillow is imported as PIL
+        "aiohttp": "aiohttp", 
+        "motor": "motor", 
+        "python-dotenv": "dotenv", # python-dotenv is imported as dotenv
+        "py-yt": "py_yt"
+    }
+    
     missing = []
-    for package in required_packages:
+    for package, module in required_packages.items():
         try:
-            __import__(package.replace("-", "_"))
+            __import__(module)
         except ImportError:
             missing.append(package)
+            
     if missing:
         print(f"Missing packages: {', '.join(missing)}")
         print("Installing required packages...")
-        subprocess.check_call(
-            [sys.executable, "-m", "pip", "install", "-r", "requirements.txt"]
-        )
-        print("Dependencies installed successfully!")
+        try:
+            subprocess.check_call(
+                [sys.executable, "-m", "pip", "install", "-r", "requirements.txt"]
+            )
+            print("Dependencies installed successfully!")
+        except subprocess.CalledProcessError as e:
+            print(f"Failed to install dependencies automatically: {e}")
+            sys.exit(1)
 
 
 def main():
